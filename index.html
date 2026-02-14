@@ -66,13 +66,14 @@ body {
     .photoGrid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 zdjęcia w rzędzie */
-    gap: 12px;
+    gap: 15px;
 }
 .photoItem {
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 18px;
     cursor: pointer;
+    transition: all 0.4s ease;
 }
     .photoItem img {
     width: 100%;
@@ -87,15 +88,20 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 10px;
-
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 14px;
-    text-align: center;
+    padding: 15px;
+    background: white;
+    color: black;
 
     transform: translateY(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+}
+    .photoItem:hover {
+    transform: scale(1.25);
+    z-index: 100;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+    .photoItem:hover img {
+    height: 200px;
 }
     .photoItem:hover .photoCaption {
     transform: translateY(0);
@@ -198,19 +204,27 @@ button {
     <div class="photoGrid">
               <div class="photoItem">
         <img src="alex schor.png">
-                  <div class="photoCaption">your cute crashouts</div>
+                  <div class="photoCaption">
+                      <h4>your cute crashouts</h4>
+                  </div>
               </div>
               <div class="photoItem"> 
         <img src="apex legends.png">
-                  <div class="photoCaption">our favourite teammates</div>
+                  <div class="photoCaption">
+                      <h4>our favourite teammates</h4>
+                  </div>
               </div>
               <div class="photoItem">
         <img src="risk of rain 2.png">
-                  <div class="photoCaption">oneshots and crashing games</div>
+                  <div class="photoCaption">
+                      <h4>oneshots and crashing games</h4>
+                  </div>
               </div>
               <div class="photoItem">
         <img src="bee swarm simulator.png">
-                  <div class="photoCaption">the most grind you experienced and you still hate being red</div>
+                  <div class="photoCaption">
+                      <h4>the most grind you experienced and you still hate being red</h4>
+                  </div>
               </div>
     </div>
 </div>
