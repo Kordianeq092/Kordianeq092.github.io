@@ -63,6 +63,19 @@ body {
     transition: left 0.3s ease;
     z-index: 3000;
 }
+    .photoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 zdjęcia w rzędzie */
+    gap: 10px;
+}
+
+.photoGrid img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
 /* PRZYCISK */
 .openBtn {
     position: fixed;
@@ -150,7 +163,12 @@ button {
 </button>
     <div id="leftPanel">
     <h2>Our Memories</h2>
-    <p>bleh</p>
+    <div class="photoGrid">
+        <img src="foto1.jpg">
+        <img src="foto2.jpg">
+        <img src="foto3.jpg">
+        <img src="foto4.jpg">
+    </div>
 </div>
 
 
