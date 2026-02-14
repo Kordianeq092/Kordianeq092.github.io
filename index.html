@@ -55,7 +55,7 @@ body {
     left: -320px;          /* ukryty poza ekranem */
     width: 280px;
     padding: 20px;
-
+    overflow: visible;
     background: white;
     border-radius: 20px;   /* zaokrąglone rogi */
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* efekt lewitacji */
@@ -71,15 +71,17 @@ body {
 .photoItem {
     position: relative;
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: 16px;
     cursor: pointer;
+    height: 120px;
     transition: all 0.4s ease;
+    background: white;
 }
     .photoItem img {
     width: 100%;
     height: 130px;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: all 0.4s ease;
 }
 .photoItem:hover img {
     transform: scale(1.15);
@@ -88,23 +90,22 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 15px;
-    background: white;
-    color: black;
-
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
+    padding: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
     .photoItem:hover {
-    transform: scale(1.25);
+    transform: scale(1.8);
     z-index: 100;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
 }
     .photoItem:hover img {
-    height: 200px;
+    height: 100%;
 }
     .photoItem:hover .photoCaption {
-    transform: translateY(0);
+    opacity: 1;
 }
 
 .photoGrid img {
