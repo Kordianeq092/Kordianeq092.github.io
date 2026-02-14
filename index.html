@@ -106,12 +106,14 @@ button {
 
 <div id="sidePanel">
   <button class="closeBtn" onclick="togglePanel()"></button>
+    <font style="Arial"> 
   <h2>Reasons i love you</h2>
-  <ol>cuz you love me, obviously</ol>
+  <li>cuz you love me, obviously</li>
     <li>why not</li>
     <li>lowk you wanna spend as much time with me as you can</li>
     <li>you dont mind my nerdy ass</li>
     <li>because i said so</li>
+        </font>
 </div>
 
 <h2 onclick="openPopup()" style="cursor:pointer;">
@@ -138,7 +140,7 @@ function closePopup() {
 
 function togglePanel() {
     const panel = document.getElementById("sidePanel");
-    panel.style.right = panel.style.right === "0px" ? "-300px" : "0px";
+    panel.style.right = panel.style.right === "0px" ? "-400px" : "0px";
 }
 </script>
 
