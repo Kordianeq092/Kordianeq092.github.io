@@ -8,14 +8,19 @@
 body {
     margin: 0;
     height: 100vh;
+
     background: url('tote.gif') no-repeat center center fixed;
     background-size: cover;
+
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-/* Panel */
+/* PANEL */
 #sidePanel {
     position: fixed;
     top: 0;
@@ -28,17 +33,21 @@ body {
     box-sizing: border-box;
     transition: right 0.3s ease;
     z-index: 1500;
-    overflow-y: auto;
 }
 
-/* Overlay popup */
+/* PRZYCISK */
+.openBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+
+/* POPUP */
 .overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
@@ -54,44 +63,30 @@ body {
 
 .popup img {
     width: 400px;
-    margin-top: 10px;
-}
-
-.close {
-    cursor: pointer;
-    color: red;
-    margin-top: 10px;
-    display: block;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PRZYCISK PANELU -->
-<button onclick="togglePanel()" style="position: fixed; top: 20px; right: 20px; z-index: 2000;">
-  ☰ Otwórz panel
-</button>
+<button class="openBtn" onclick="togglePanel()">☰</button>
 
-<!-- PANEL -->
 <div id="sidePanel">
-  <button onclick="togglePanel()" style="background:none; border:none; color:white; font-size: 20px; cursor:pointer;">
-    × Zamknij
-  </button>
+  <button onclick="togglePanel()">Zamknij</button>
   <h2>Panel boczny</h2>
-  <p>Tu możesz dodać dowolną zawartość.</p>
+  <p>Tu możesz dodać zawartość.</p>
 </div>
 
-<!-- POPUP -->
-<h2 onclick="openPopup()" style="cursor:pointer; color:black;">
-click me
+<h2 onclick="openPopup()" style="cursor:pointer;">
+Click me
 </h2>
 
 <div class="overlay" id="popup">
     <div class="popup">
         <h3>Love you bae</h3>
-        <img src="tete.png" alt="Obrazek">
-        <span class="close" onclick="closePopup()">Zamknij</span>
+        <img src="tete.png" alt="">
+        <br><br>
+        <button onclick="closePopup()">Zamknij</button>
     </div>
 </div>
 
@@ -105,12 +100,8 @@ function closePopup() {
 }
 
 function togglePanel() {
-    const panel = document.getElementById('sidePanel');
-    if (panel.style.right === '0px') {
-        panel.style.right = '-300px';
-    } else {
-        panel.style.right = '0px';
-    }
+    const panel = document.getElementById("sidePanel");
+    panel.style.right = panel.style.right === "0px" ? "-300px" : "0px";
 }
 </script>
 
