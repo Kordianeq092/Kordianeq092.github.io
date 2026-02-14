@@ -34,7 +34,35 @@ body {
     transition: right 0.3s ease;
     z-index: 1500;
 }
+    /* PRZYCISK LEWY */
+.openLeftBtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000;
 
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+}
+/* LEWITUJĄCY PANEL */
+#leftPanel {
+    position: fixed;
+    top: 100px;
+    left: -320px;          /* ukryty poza ekranem */
+    width: 280px;
+    padding: 20px;
+
+    background: white;
+    border-radius: 20px;   /* zaokrąglone rogi */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* efekt lewitacji */
+
+    transition: left 0.3s ease;
+    z-index: 1500;
+}
 /* PRZYCISK */
 .openBtn {
     position: fixed;
@@ -114,9 +142,17 @@ button {
 
 <body>
 
+<button class="openLeftBtn" onclick="toggleLeftPanel()"
+    <img src="tetopic.png" alt="Menu" style="width:100%; height:100%; object-fit:cover;">
+</button>
 <button class="openBtn" onclick="togglePanel()">
     <img src="tetopic.png" alt="Menu" style="width:100%; height:100%; object-fit:cover;"> 
 </button>
+    <div id="leftPanel">
+    <h2>Our Memories</h2>
+    <p>bleh</p>
+</div>
+
 
 <div id="sidePanel">
     <button class="closeBtn" onclick="togglePanel()"></button>
@@ -147,6 +183,12 @@ Click me
 </div>
 
 <script>
+    
+    function toggleLeftPanel() {
+    const panel = document.getElementById("leftPanel");
+    panel.style.left = panel.style.left === "20px" ? "-320px" : "20px";
+}
+
 function openPopup() {
     document.getElementById("popup").style.display = "flex";
 }
