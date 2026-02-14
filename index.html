@@ -66,7 +66,39 @@ body {
     .photoGrid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 zdjęcia w rzędzie */
-    gap: 10px;
+    gap: 12px;
+}
+.photoItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+}
+    .photoItem img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.photoItem:hover img {
+    transform: scale(1.15);
+}
+    .photoCaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 14px;
+    text-align: center;
+
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+    .photoItem:hover .photoCaption {
+    transform: translateY(0);
 }
 
 .photoGrid img {
@@ -164,10 +196,22 @@ button {
     <div id="leftPanel">
     <h2>Our Memories</h2>
     <div class="photoGrid">
+              <div class="photoItem">
         <img src="alex schor.png">
+                  <div class="photoCaption">your cute crashouts</div>
+              </div>
+              <div class="photoItem"> 
         <img src="apex legends.png">
+                  <div class="photoCaption">our favourite teammates</div>
+              </div>
+              <div class="photoItem">
         <img src="risk of rain 2.png">
+                  <div class="photoCaption">oneshots and crashing games</div>
+              </div>
+              <div class="photoItem">
         <img src="bee swarm simulator.png">
+                  <div class="photoCaption">the most grind you experienced and you still hate being red</div>
+              </div>
     </div>
 </div>
 
