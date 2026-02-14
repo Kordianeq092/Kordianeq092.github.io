@@ -13,11 +13,10 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 100px;
-    <button onclick="togglePanel()" style="position: fixed; top: 20px; right: 20px; z-index: 1001;">
-  ☰ Otwórz panel
-</button>
+}
 
-<div id="sidePanel" style="
+/* Panel */
+#sidePanel {
     position: fixed;
     top: 0;
     right: -300px;
@@ -28,17 +27,11 @@ body {
     padding: 20px;
     box-sizing: border-box;
     transition: right 0.3s ease;
-    z-index: 1000;
+    z-index: 1500;
     overflow-y: auto;
-">
-  <button onclick="togglePanel()" style="background:none; border:none; color:white; font-size: 20px; cursor:pointer;">× Zamknij</button>
-  <h2>Panel boczny</h2>
-  <p>Tu możesz dodać dowolną zawartość.</p>
-</div>
-
 }
 
-
+/* Overlay popup */
 .overlay {
     display: none;
     position: fixed;
@@ -49,8 +42,8 @@ body {
     background: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
-
 
 .popup {
     background: white;
@@ -72,17 +65,33 @@ body {
 }
 </style>
 </head>
+
 <body>
 
+<!-- PRZYCISK PANELU -->
+<button onclick="togglePanel()" style="position: fixed; top: 20px; right: 20px; z-index: 2000;">
+  ☰ Otwórz panel
+</button>
+
+<!-- PANEL -->
+<div id="sidePanel">
+  <button onclick="togglePanel()" style="background:none; border:none; color:white; font-size: 20px; cursor:pointer;">
+    × Zamknij
+  </button>
+  <h2>Panel boczny</h2>
+  <p>Tu możesz dodać dowolną zawartość.</p>
+</div>
+
+<!-- POPUP -->
 <h2 onclick="openPopup()" style="cursor:pointer; color:black;">
-click me nigga
+click me
 </h2>
 
 <div class="overlay" id="popup">
     <div class="popup">
         <h3>Love you bae</h3>
         <img src="tete.png" alt="Obrazek">
-        <span class="close" onclick="closePopup()">i coded this for so long fr </3</span>
+        <span class="close" onclick="closePopup()">Zamknij</span>
     </div>
 </div>
 
@@ -94,16 +103,17 @@ function openPopup() {
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
-    function togglePanel() {
-  const panel = document.getElementById('sidePanel');
-  if (panel.style.right === '0px') {
-    panel.style.right = '-300px';
-  } else {
-    panel.style.right = '0px';
-  }
-}
 
+function togglePanel() {
+    const panel = document.getElementById('sidePanel');
+    if (panel.style.right === '0px') {
+        panel.style.right = '-300px';
+    } else {
+        panel.style.right = '0px';
+    }
+}
 </script>
 
 </body>
 </html>
+
