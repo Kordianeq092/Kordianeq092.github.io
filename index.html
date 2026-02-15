@@ -100,11 +100,7 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-    .photoItem:hover {
-    transform: scale(1.8);
-    z-index: 100;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-}
+   
     .photoItem:hover img {
     height: 100%;
 }
@@ -282,7 +278,7 @@ function togglePanel() {
     const panel = document.getElementById("sidePanel");
     panel.style.right = panel.style.right === "0px" ? "-400px" : "0px";
 }
-    const cards = document.querySelectorAll(".photoItem");
+   const cards = document.querySelectorAll(".photoItem");
 
 cards.forEach(card => {
 
@@ -297,14 +293,27 @@ cards.forEach(card => {
         const rotateX = -(y - centerY) / 8;
         const rotateY = (x - centerX) / 8;
 
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+        card.style.transform =
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.25)`;
+
+        card.style.boxShadow =
+            "0 35px 70px rgba(0,0,0,0.45)";
+        
+        card.style.zIndex = "100";
     });
 
     card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+        card.style.transform =
+            "rotateX(0) rotateY(0) scale(1)";
+
+        card.style.boxShadow =
+            "0 25px 50px rgba(0,0,0,0.25)";
+
+        card.style.zIndex = "1";
     });
 
 });
+
 
 </script>
 
