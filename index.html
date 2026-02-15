@@ -65,17 +65,20 @@ body {
 }
     .photoGrid {
     display: grid;
+    perspective: 1000px;
     grid-template-columns: 1fr 1fr; /* 2 zdjęcia w rzędzie */
     gap: 15px;
 }
 .photoItem {
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 18px;
     cursor: pointer;
     height: 120px;
-    transition: all 0.4s ease;
+    transition: transform 0.1s ease;
+    transform-style: preserve-3d;
     background: white;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
     .photoItem img {
     width: 100%;
@@ -278,6 +281,30 @@ function togglePanel() {
     const panel = document.getElementById("sidePanel");
     panel.style.right = panel.style.right === "0px" ? "-400px" : "0px";
 }
+    const cards = document.querySelectorAll(".photoItem");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = -(y - centerY) / 15;
+        const rotateY = (x - centerX) / 15;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    });
+
+});
+
 </script>
 
 </body>
