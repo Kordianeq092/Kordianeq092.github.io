@@ -52,11 +52,14 @@ body {
 }
     
 .panelImg {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
+    width: 100%;      /* zajmuje całą szerokość panelu */
+    height: auto;     /* proporcje zachowane */
     border-radius: 15px;
+    display: block;
+    margin-top: 20px;
+    object-fit: cover; /* dopasowuje obraz do obszaru */
 }
+
 
 /* ===================== LEFT FLOATING PANEL ===================== */
 .openLeftBtn {
@@ -238,7 +241,7 @@ body {
         <li>you accept my nerdy ass</li>
         <li>because i said so</li>
     </ul>
-    <img src="whigga.png" alt="boat">
+    <img src="whigga.png" alt="Whigga" class="panelImg">
 </div>
 
 <!-- CENTER LIBRARY -->
